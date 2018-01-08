@@ -1,0 +1,99 @@
+\documentclass[11pt,table]{beamer}
+%Belangrijke packages voor Schrijven van acenten, trema
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+%
+\usetheme{Luebeck}%Overall Thema
+\usefonttheme{professionalfonts}%Font Thema
+\definecolor{sapphire}{rgb}{0.03, 0.15, 0.4}%Kleur Definiëring voor Thema
+\usecolortheme{seagull}%Uitvoering thema
+%%Navigation bar
+\setbeamercolor{section in head/foot}{fg=white,bg=black}
+
+\makeatletter
+\setbeamertemplate{headline}{%
+    \begin{beamercolorbox}[ht=2.25ex,dp=3.75ex]{section in head/foot}
+      \vskip2pt\insertnavigation{\paperwidth}
+    \end{beamercolorbox}%
+}%
+\makeatother
+%% Eind Navigation bar
+
+%Een package die mogeljk maakt bestanden uit subdirectories toe te voegen in het document. \subimport{Grafieken/} is een relatieve pad en \import{/c:users/Edon/documenten/...} is absoluut.
+\usepackage{import}
+%%
+
+% Verwijdering navigatie iconen
+%\setbeamertemplate{navigation symbols}{}
+%%
+
+%%Toevoeging Frame counter in voet + Herschrijving Code
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+   \insertshorttitle\hfill%
+   \insertframenumber\,/\,\inserttotalframenumber}
+   
+%\setbeamercolor{mycolor}{fg=black,bg=title in head}
+%
+%\defbeamertemplate*{footline}{theme}{%
+%\leavevmode%
+%\hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fil,rightskip=.3cm]{author in head/foot}%
+%    \usebeamerfont{author in head/foot}\hfill\insertshortauthor
+%\end{beamercolorbox}%
+%\begin{beamercolorbox}[wd=.4\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+%    \usebeamerfont{title in head/foot}\insertshorttitle\hfill%
+%\end{beamercolorbox}%
+%\begin{beamercolorbox}[wd=.1\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{mycolor}%
+%\hfill\insertframenumber\,/\,\inserttotalframenumber
+%\end{beamercolorbox}}%
+%\vskip0pt%
+%}
+
+%
+\usepackage[dutch]{babel} %Nederlandse Taal
+%%
+
+%%%%% Wiskunde Paketjes
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+%%%%Herdefiniëring van de wortel
+\usepackage{letltxmacro}
+\makeatletter
+\let\oldr@@t\r@@t
+\def\r@@t#1#2{%
+\setbox0=\hbox{$\oldr@@t#1{#2\,}$}\dimen0=\ht0
+\advance\dimen0-0.2\ht0
+\setbox2=\hbox{\vrule height\ht0 depth -\dimen0}%
+{\box0\lower0.4pt\box2}}
+\LetLtxMacro{\oldsqrt}{\sqrt}
+\renewcommand*{\sqrt}[2][\ ]{\oldsqrt[#1]{#2} }
+\makeatother
+%%%%
+
+%%%%% Graphs
+\usepackage{xcolor}%%Kleurgeving van columnen, rijen en cellen in tabellen. 
+\usepackage{graphicx}%%Externe Foto toevoeger
+\usepackage{tikz}%% Intern Graph Maker
+\usetikzlibrary{mindmap}
+\graphicspath{{./Graphics/}}%%Geeft submap van Graphics aan, voor geordend werken.
+%%
+
+%%%%%Tabel
+\usepackage{array,multirow, booktabs}%%Tabellenmaker 1.Array voor horizontale lijnen en arraystretch, 2. Multirow en Multicolumn voor merging rijen en columnen respectievelijk, 3. Booktabs voor code commands in tabel.
+\renewcommand{\arraystretch}{1.5}%Ruimte tussen twee rijen
+\setlength{\tabcolsep}{10pt}%Ruimte tussen twee colommen 
+
+%%%Titelpagina
+\author{Edon Namani}
+\title{Dummy Titel}
+\subtitle{Dummy Subtitel}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+\logo{\includegraphics[width=.05\textwidth]{LogoFysica.pdf}} 
+\institute{\includegraphics[width=.2\textwidth]{LogoFysica.pdf}\\
+Jouw instituut of bedrijf} 
+\date{\today} 
+\subject{Professionele Beamer Presentatie} 
+%%%

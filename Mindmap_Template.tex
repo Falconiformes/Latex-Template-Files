@@ -1,0 +1,44 @@
+\begin{center}
+\resizebox{.5\textwidth}{!}{
+\begin{tikzpicture} 
+			[mindmap, 
+			every node/.style={concept,execute at begin node=\hskip0pt, 
+			text=white},
+			grow cyclic,
+			level 1/.append style={level distance=4.5cm,sibling angle=72},
+			level 2/.append style={level distance=3cm,sibling angle=60},
+			concept color=black
+			]
+\node(hoofd) {\Large Hoofd} 
+	child[concept color=black!80] {node (a) {Child a}
+			child[concept color=black!60] {node (a1) {subchild a1}}
+			child[concept color=black!60] {node (a2) {subchild a2}}
+			child[concept color=black!60]  {node (a3) {subchild a3}}				
+		}%
+		%
+	child[concept color=black!80] {node (b) {Child b}
+			child[concept color=black!60]  {node (b1) {subchild b1}}
+			child[concept color=black!60]  {node (b2) {subchild b2}}
+			child[concept color=black!60]  {node (b3) {subchild b3}}	
+	}%
+	%
+	child[concept color=black!80] {node (c) {Child c}
+			child[concept color=black!60]  {node (c1) {subchild c1}}
+			child[concept color=black!60]  {node (c2) {subchild c2}}
+			child[concept color=black!60]  {node (c3) {subchild c3}}	
+	}%
+	%
+	child[concept color=black!80] {node (d) {Child d}
+			child[concept color=black!60] {node (d1) {subchild d1}}
+			child[concept color=black!60] {node (d2) {subchild d2}}
+			child[concept color=black!60] {node (d3) {subchild d3}}	
+	}%
+	  %
+	child[concept color=black!80] {node (e) {Child e}
+			child[concept color=black!60] {node (e1) {subchild e1}}
+			child[concept color=black!60] {node (e2) {subchild e2}}
+			child[concept color=black!60]  {node (e3) {subchild e3}}	
+	};
+\end{tikzpicture}
+}
+\end{center}

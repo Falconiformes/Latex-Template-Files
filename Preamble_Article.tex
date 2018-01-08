@@ -1,0 +1,106 @@
+\newcommand{\magic}{[Hier gaat de magic gebeuren]}
+%Belangrijke packages voor Schrijven van acenten, trema
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\usepackage{mathpazo} % Palatino font, een betere font dan standaard. Is serif-font, dus font voor de verhalende tekst
+\setkomafont{disposition}{\bfseries\rmfamily}
+\addtokomafont{captionlabel}{\bfseries}
+%% Eind TypografiePackages
+
+%Een package die mogeljk maakt bestanden uit subdirectories toe te voegen in het document. \subimport{Grafieken/} is een relatieve pad en \import{/c:users/Edon/documenten/...} is absoluut.
+\usepackage{import}
+%%
+
+%Taal
+\usepackage[dutch]{babel} %Nederlandse Taal
+\usepackage{blindtext}
+%%
+
+%%%%% Wiskunde Paketjes
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\numberwithin{equation}{section}%Wiskundige formules worden gevolgd door een eerste getal die de behoring van welke sectie aangeeft.
+%% Eind WiskundePackages
+
+%%%%Herdefiniëring van de wortel-teken
+\usepackage{letltxmacro}
+\makeatletter
+\let\oldr@@t\r@@t
+\def\r@@t#1#2{%
+\setbox0=\hbox{$\oldr@@t#1{#2\,}$}\dimen0=\ht0
+\advance\dimen0-0.2\ht0
+\setbox2=\hbox{\vrule height\ht0 depth -\dimen0}%
+{\box0\lower0.4pt\box2}}
+\LetLtxMacro{\oldsqrt}{\sqrt}
+\renewcommand*{\sqrt}[2][\ ]{\oldsqrt[#1]{#2} }
+\makeatother
+%%%%
+
+%%%%% Graphics
+\usepackage[table]{xcolor}%%Kleurgeving van columnen, rijen en cellen in tabellen. 
+\usepackage{graphicx}%%Externe Foto toevoeger
+\graphicspath{{./Graphics/}}%%Geeft submap van Graphics aan, voor geordend werken.
+\usepackage{tikz}%% Intern Graphic Maker
+\usetikzlibrary{patterns}
+\usetikzlibrary{positioning,calc}
+%%
+
+%%%%% Graphs
+\usepackage{pgfplots}
+\usepackage{pgfplotstable} % Voor linieare trendlijn bij data
+\usepackage{filecontents}
+%Bij een <\addplot> command moet je bij de optie in <[]> de error bars op het eind van alle opties doen
+%%
+
+%SI-eenheden pakket
+\usepackage{siunitx}%% Maakt toevoeging van eenheden intuïtiever en als gevolg gemakkelijker
+\sisetup{output-decimal-marker = {,}} %De komma wordt gezien als een decimaal-teken bij gebruik van SIunitx pakket. Beter gezegd een punt <.> wordt in het document als een komma afgebeeld, zoals \num{5.59} wordt weergeven als 5,59. ,per-mode=fraction : eenheden die worden gedeeld worden als breuk weergeven.
+%%
+
+%%%%%Tabel
+\usepackage{array,multirow,booktabs,tabularx}%%Tabellenmaker 1.Array voor horizontale lijn en arraystretch, 2. Multirow en Multicolumn voor merging rijen en columnen respectievelijk, 3.Booktabs voor code commands in tabel. 4. Tabularx voor één table als twee tables naast elkaar op één pagina
+\renewcommand{\arraystretch}{1.5}%Ruimte tussen twee rijen
+\setlength{\tabcolsep}{10pt}%Ruimte tussen twee colommen 
+%\setlength{\heavyrulewidth}{1.1pt}
+%%
+
+%Package handig voor Chemische formules en R.V. \ce{H2O}= wordt met subscript geschreven
+\usepackage[version=4]{mhchem}
+\usepackage{chemfig}
+%%
+
+%Handig voor verwijzingen
+\usepackage{hyperref}
+\usepackage[dutch]{cleveref}
+%\crefformat{equation}{vgl.~(#2#1#3)} 
+%\Crefformat{equation}{Vgl.~(#2#1#3)} 
+%
+%\crefformat{table}{tabel.~(#2#1#3)} 
+%\Crefformat{table}{Tabel.~(#2#1#3)} 
+%%
+
+%Bepaling margegrootte
+\KOMAoptions{DIV=calc,BCOR=.75cm, abstract=true}
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+\microtypecontext{spacing=nonfrench}
+% activate={true,nocompatibility} - activeert uitsteking van tekst over marge en individuele letters in woorden uit spreiden
+% final - zet aan microtype; gebruik "draft" om uit te zetten
+% tracking=true, kerning=true, spacing=true - activeert deze technieken
+% factor=1100 - voegt 10% toe aan uitsteking hoeveelheid (standaard is 1000)
+% stretch=10, shrink=10 - reduceert stretchability/shrinkability (standaard is 20/20)
+\usepackage{setspace,typearea}
+%%
+
+%%Links gealineerde tabel en figuur bijschriften(caption)
+\setcapwidth[l]{\textwidth}
+%%
+
+%%Forcering Floats op de plek te blijven waar ze in de code staan met de optie [H].
+\usepackage{float}
+%%
+
+%Definiëring van subscripts in eenheden in siunitx package
+%\DeclareSIQualifier\<naam van de qualifier>{<hier tekst met hoe de qualifier moet worden weergeven>}
+%%
