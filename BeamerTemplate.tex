@@ -1,0 +1,79 @@
+\input{PreambleBeamerTemplate.tex}
+\begin{document}
+
+\begin{frame}[plain]%Titelframe
+\titlepage
+\end{frame}
+
+%\begin{frame}
+%\tableofcontents
+%\end{frame}
+\section{Test}
+\subsection{Yes}
+\begin{frame}{Boxes}
+%
+\begin{block}{Voorbeeld}
+Normale block
+\begin{equation}
+f(x)=\dfrac{\ln(\boldsymbol{5x^2})}{\sqrt{x}}=\dfrac{\ln(\boldsymbol{5})+\boldsymbol{2}\ln\boldsymbol{\left|x\right|}}{\sqrt{x}}
+\end{equation}
+\end{block}
+%
+\end{frame}
+%
+\section{Matematica}
+\subsection{check}
+\begin{frame}{Tabel}
+\begin{center}
+%
+\begin{tabular}{@{}*3l@{}}
+\rowcolor{gray!80} Rij1 & Rij1 & Rij1\\
+%\arrayrulecolor{white}\cmidrule{1-3}%
+\rowcolor{gray!40} Rij2 & Rij2 & Rij2 \\
+%\arrayrulecolor{white}\cmidrule{1-3}%
+\rowcolor{gray!40} Rij3 & Rij3 & Rij3 \\
+\end{tabular}
+%
+\end{center}
+\end{frame}
+%
+\begin{frame}{Enumerate}
+\begin{columns}
+%%
+\begin{column}{.5\textwidth}
+\begin{enumerate}
+\item 1
+\item 2
+\item 3
+\end{enumerate}
+\end{column}
+%
+\begin{column}{.5\textwidth}
+\begin{itemize}
+\item *
+\item *
+\item *
+\end{itemize}
+\end{column}
+%%
+\end{columns}
+\end{frame}
+%%
+\begin{frame}{Vergelijkingen}
+\begin{block}{ABC-formule}
+\begin{equation}
+x_{1,2}=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
+\end{equation}
+\end{block}
+\end{frame}
+%
+\begin{frame}{Grafiek}
+\resizebox{.5\textwidth}{!}{\subimport{Grafieken/}{Kwadraat}}
+Effe checken of het werkt 
+\end{frame}
+%
+\begin{frame}{Mindmap}
+\subimport{Mindmap_Template/}{Mindmap_Template.tex}
+\end{frame}
+
+\end{document}
